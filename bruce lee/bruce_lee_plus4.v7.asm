@@ -7,6 +7,37 @@ screen_mem_buffer1      = $0c00
 screen_mem_buffer2      = $e400
 double_buffer_screen_cycles = 1
 
+last_body_character_behavior = $e4
+last_feet_character_behavior = $e5
+last_ninja_body_character_behavior = $f4
+last_ninja_feet_character_behavior = $f5
+last_sumo_body_character_behavior = $f6
+last_sumo_feet_character_behavior = $f7
+
+base = $a0
+VOLTAB_CNT  = base + $00
+NOISE   = base + $01
+
+PCH   = base + $02  ; pattern data pointers (2)
+
+CH1_LO    = base + $04  ; channel data pointers
+CH2_LO    = base + $05
+CH1_HI    = base + $06
+CH2_HI    = base + $07
+
+CH_TEMP   = base + $08  ; 16 bit
+
+NOTE1   = base + $0A  ; note counters
+NOTE2   = base + $0B
+NOTELEN1  = base + $0C  ; current note lengths
+NOTELEN2  = base + $0D
+
+INS_TYPE1 = base + $0E
+INS_TYPE2 = base + $0F
+TONE1   = base + $10
+TONE2   = base + $11
+VIB_ADD   = base + $12
+
 *= 4112
 
 start:
@@ -6327,8 +6358,8 @@ start_player_animation:
 ;-----------------------------------------------------------------------------------------
 ;     PROGRESS ANIMATION        does next anim sequence action
 ;-----------------------------------------------------------------------------------------
-last_body_character_behavior = $e4
-last_feet_character_behavior = $e5
+;last_body_character_behavior = $e4
+;last_feet_character_behavior = $e5
 
 progress_player_animation:
     
@@ -7969,8 +8000,8 @@ start_sumo_animation:
 ;-----------------------------------------------------------------------------------------
 ;     PROGRESS sumo ANIMATION       does next anim sequence action
 ;-----------------------------------------------------------------------------------------
-last_sumo_body_character_behavior = $f6
-last_sumo_feet_character_behavior = $f7
+;last_sumo_body_character_behavior = $f6
+;last_sumo_feet_character_behavior = $f7
 
 progress_sumo_animation:
     
@@ -9757,8 +9788,8 @@ start_ninja_animation:
 ;-----------------------------------------------------------------------------------------
 ;     PROGRESS NINJA ANIMATION        does next anim sequence action
 ;-----------------------------------------------------------------------------------------
-last_ninja_body_character_behavior = $f4
-last_ninja_feet_character_behavior = $f5
+;last_ninja_body_character_behavior = $f4
+;last_ninja_feet_character_behavior = $f5
 
 progress_ninja_animation:
     
@@ -21728,30 +21759,29 @@ freqs_hi
 ;[eof]
 
 ; Variables
+;base = $a0
+;VOLTAB_CNT  = base + $00
+;NOISE   = base + $01
 
-base = $a0
-VOLTAB_CNT  = base + $00
-NOISE   = base + $01
+;PCH   = base + $02  ; pattern data pointers (2)
 
-PCH   = base + $02  ; pattern data pointers (2)
+;CH1_LO    = base + $04  ; channel data pointers
+;CH2_LO    = base + $05
+;CH1_HI    = base + $06
+;CH2_HI    = base + $07
 
-CH1_LO    = base + $04  ; channel data pointers
-CH2_LO    = base + $05
-CH1_HI    = base + $06
-CH2_HI    = base + $07
+;CH_TEMP   = base + $08  ; 16 bit
 
-CH_TEMP   = base + $08  ; 16 bit
+;NOTE1   = base + $0A  ; note counters
+;NOTE2   = base + $0B
+;NOTELEN1  = base + $0C  ; current note lengths
+;NOTELEN2  = base + $0D
 
-NOTE1   = base + $0A  ; note counters
-NOTE2   = base + $0B
-NOTELEN1  = base + $0C  ; current note lengths
-NOTELEN2  = base + $0D
-
-INS_TYPE1 = base + $0E
-INS_TYPE2 = base + $0F
-TONE1   = base + $10
-TONE2   = base + $11
-VIB_ADD   = base + $12
+;INS_TYPE1 = base + $0E
+;INS_TYPE2 = base + $0F
+;TONE1   = base + $10
+;TONE2   = base + $11
+;VIB_ADD   = base + $12
 ;eof
 
 vol_default
